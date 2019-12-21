@@ -1,4 +1,5 @@
 #This is an application for accident severity prediction
+#read the data.txt in the data folder, it contains the instruction for getting the dataset for this application
 
 Instructions for using this application:
 
