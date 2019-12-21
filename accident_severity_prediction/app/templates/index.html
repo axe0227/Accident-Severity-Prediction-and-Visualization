@@ -1,0 +1,280 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title> Accident Severity Prediction </title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- <link rel="stylesheet" href="../static/style.css"> -->
+		<style>
+			h1 {
+			    text-align: center;
+			    color: lightslategray;
+                font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+                font-size: large;
+			}
+
+			input[type=text], select {
+			    width: 100%;
+			    padding: 6px 10px;
+			    margin: 2px 0;
+			    display: inline-block;
+			    border: 1px solid #ccc;
+			    border-radius: 4px;
+			    box-sizing: border-box;
+			    font-size: 15px;
+			}
+
+
+            body, html {
+              height: 100%;
+              margin: 0;
+            }
+
+            .bg {
+                /* The image used */
+                background-image : url("../tmp/bkg-2.jpg");
+
+                /* Full height */
+                height: 115%;
+
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: cover;
+            }
+
+			.box {
+			    width: 400px;
+			    margin-left: 100px;
+			    margin-top: 20px;
+			    border-radius: 10px;
+			    background-color: #f2f2f2;
+			    padding: 20px;
+			}
+
+			.button {
+			  display: inline-block;
+			  padding: 11px 25px;
+              font-family: "Lucinda Grande", "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+			  font-size: 20px;
+			  cursor: pointer;
+			  text-align: center;
+			  text-decoration: none;
+			  outline: none;
+			  color: #fff;
+			  background-color: #808080;
+			  border: none;
+			  border-radius: 15px;
+			  box-shadow: 0 9px #999;
+			  position:relative;
+    		  left:30%;
+			  /*margin: 0 auto;*/
+			}
+
+			.button:hover {background-color: steelblue}
+
+			.button:active {
+			  background-color: lightblue;
+			  box-shadow: 0 5px #666;
+			  transform: translateY(4px);
+			}
+		</style>
+	</head>
+
+	<body background="bkg-2.jpg">
+		<div class="box">
+		    <form method="post" role="form">
+		      <h1>Accident Severity Prediction</h1>
+			  <p>
+
+            		<label>Carriageway Hazards:</label>
+            		<input type="radio"
+            		       name="Carriageway_Hazards"
+            		       value="1"
+            		       checked /> Present
+            		<input type="radio"
+            		       name="Carriageway_Hazards"
+            		       value="0" /> None
+			  </p>
+
+
+              <p>
+				<label>Area:</label>
+				<input type="radio"
+                       name="Urban_or_Rural_Area"
+                       value="1"
+                       checked /> Urban
+                <input type="radio"
+                       name="Urban_or_Rural_Area"
+                       value="2" /> Rural
+			</p>
+
+
+          <p>
+            <label>Light Conditions</label>
+            <label>
+                <select name="Light_Conditions">
+                    <option value="0">Daylight</option>
+                    <option value="1">Darkness - lighting lit</option>
+                    <option value="2">Darkness - no light</option>
+                </select>
+            </label>
+          </p>
+
+
+
+            <p>
+              <label>Day of the week</label>
+              <label>
+                  <select name="Day_of_Week">
+                    <option value="1">Saturday</option>
+                    <option value="1">Sunday</option>
+                    <option value="0">Monday</option>
+                    <option value="0">Tuesday</option>
+                    <option value="0">Wednesday</option>
+                    <option value="0">Thursday</option>
+                    <option value="0">Friday</option>
+                  </select>
+              </label>
+            </p>
+
+			<p>
+	           	  <label>Special conditions at site</label>
+			      <select name="Special_Conditions_at_Site">
+                    <option value="0">None</option>
+			      	<option value="1">Roadworks Auto signal part defective</option>
+				    <option value="2">Oil or diesel</option>
+				    <option value="3">Mud</option>
+				    <option value="4">Road surface defective</option>
+				    <option value="5">Auto traffic signal - out</option>
+				    <option value="6">Road sign or marking defective or obscured</option>
+				    <option value="1">Auto signal part defective</option>
+				  </select>
+			</p>
+
+			<p>
+	           	  <label>Road class</label>
+			      <select name="1st_Road_Class">
+			      	<option value="1">A</option>
+				    <option value="2">B</option>
+				    <option value="3">C</option>
+				    <option value="4">Motorway</option>
+				    <option value="5">Unclassified</option>
+				  </select>
+			</p>
+
+            <p>
+                <label>Junction Detail</label>
+                <select name="Junction_Detail">
+                    <option value="1">Not at junction or within 20 metres</option>
+                    <option value="2">T or staggered junction</option>
+                    <option value="3">Crossroads</option>
+                    <option value="4">Roundabout</option>
+                    <option value="5">Private drive or entrance</option>
+                    <option value="6">Other junction</option>
+                    <option value="7">Slip Road</option>
+                    <option value="8">More than 4 arms (not roundabout)</option>
+                    <option value="9">Mini-roundabout</option>
+                </select>
+            </p>
+
+			<p>
+	           	  <label>Road surface conditions</label>
+			      <select name="Road_Surface_Conditions">
+			      	<option value="1">Dry</option>
+				    <option value="2">Wet or damp</option>
+				    <option value="3">Frost or ice</option>
+				    <option value="4">Snow</option>
+				    <option value="5">Flood over 3cm. deep</option>
+				  </select>
+			</p>
+
+			<p>
+	           	  <label>Road Type</label>
+			      <select name="Road_Type">
+			      	<option value="1">Single carriageway</option>
+				    <option value="2">Dual carriageway</option>
+				    <option value="3">Roundabout</option>
+				    <option value="4">One way street</option>
+				    <option value="5">Slip road</option>
+				  </select>
+			</p>
+
+
+			<p>
+	           	  <label>Weather Conditions</label>
+			      <select name="Weather_Conditions">
+			      	<option value="1">Fine no high winds</option>
+				    <option value="2">Raining no high winds</option>
+				    <option value="3">Raining + high winds</option>
+				    <option value="4">Fine + high winds</option>
+				    <option value="5">Snowing no high winds</option>
+				    <option value="6">Fog or mist</option>
+				    <option value="7">Snowing + high winds</option>
+				  </select>
+			</p>
+
+			<p>
+	           	  <label>Speed Limit</label>
+			      <select name="Speed_limit">
+			      	<option value="10.0">10.0</option>
+				    <option value="15.0">15.0</option>
+				    <option value="20.0">20.0</option>
+				    <option value="30.0">30.0</option>
+				    <option value="40.0">40.0</option>
+				    <option value="50.0">50.0</option>
+				    <option value="60.0">60.0</option>
+				    <option value="70.0">70.0</option>
+				  </select>
+			</p>
+
+			<p>
+				<label>period of the day</label>
+                <select name="Period">
+                    <option value="1">6:00 ~ 10:00</option>
+                    <option value="2">10:00 ~ 15:00</option>
+                    <option value="3">15:00 ~ 20：00</option>
+                    <option value="4">20:00 ~ 6:00</option>
+                </select>
+			</p>
+
+		    <button class="button" type="submit" id="submit">Submit</button>
+		    </form>
+		</div>
+	</body>
+	<script type="text/javascript">
+	function ConvertFormToJSON(form){
+    	var array = jQuery(form).serializeArray();
+    	var json = {};
+    
+    	jQuery.each(array, function() {
+    	    json[this.name] = this.value || '';
+   		});
+    
+    	return json;
+	}
+		$(function() {
+    $('button').click(function(e) {
+    	e.preventDefault()
+    	var json = ConvertFormToJSON($('form'));
+    	console.log(json)
+        $.ajax({
+            url: '/predict',
+            data: JSON.stringify(json),
+          	dataType: "json",
+            type: 'POST',
+            contentType: "application/json",
+            success: function(response) {
+                console.log(response);
+                alert("Accident Severity is predicted as:"+response.result)
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    });
+});
+ 
+    </script>
+</html>

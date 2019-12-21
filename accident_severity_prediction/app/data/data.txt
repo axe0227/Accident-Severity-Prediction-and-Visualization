@@ -1,0 +1,4 @@
+The dataset we use is avliable on 
+https://www.kaggle.com/tsiaras/uk-road-safety-accidents-and-vehicles
+For this application to run, use the Accident_Information.csv
+Put the file under this folder.
