@@ -1,0 +1,72 @@
+h1 {
+    text-align: center;
+    color: lightslategray;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: large;
+}
+
+input[type=text], select {
+    width: 100%;
+    padding: 6px 10px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+    /* The image used */
+    background-image : url("../tmp/bkg-2.jpg");
+
+    /* Full height */
+    height: 115%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.box {
+    width: 25%;
+    margin-left: 30px;
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: #f2f2f2;
+    padding: 5px;
+}
+
+.button {
+  display: inline-block;
+  padding: 11px 25px;
+  font-family: "Lucinda Grande", "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #808080;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  position:relative;
+  left:30%;
+  /*margin: 0 auto;*/
+}
+
+.button:hover {background-color: steelblue}
+
+.button:active {
+  background-color: lightblue;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
