@@ -1,16 +1,15 @@
-# This is a Course Project for EECS6893 Big Data Analytics
- an application for accident severity prediction
+# Course Project for EECS6893 Big Data Analytics
+##  an application for accident severity prediction
 
-#read the data.txt in the data folder, it contains the instruction for getting the dataset for this application
 The dataset is from [here] (https://www.kaggle.com/tsiaras/uk-road-safety-accidents-and-vehicles) which contains traffic accident data from the UK.
 
 - we trained a machine learning model using on lightGBM to predict the accident serverity based on input information
 - visualized the accident hotspot using Dash(a python frontend framework)
 - did exploratory analysis on the data 
 
-* [final report](report/final-report.pdf)
+## you can see the [final report](report/final-report.pdf)
 
-Instructions for using this application:
+## Instructions for using this application:
 
 1.make sure you have python3 environment installed
 
